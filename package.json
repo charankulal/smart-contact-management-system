@@ -1,0 +1,12 @@
+{
+  "name": "scms",
+  "version": "1.0.0",
+  "description": "Smart Contact Management System",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "npm run"
+  },
+  "author": "",
+  "license": "ISC"
+}
