@@ -3,18 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .container{
-            margin: 20px;
-            border: 2px solid red;
-            padding: 4%;
-            background-color: aqua;
-        }
-    </style>
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}">
 </head>
 <body>
 <div class="container">
-    <h1 data-th-text="${name}">Welcome to Home page</h1>
+    <h1 data-th-text="${name}" class="text-2xl font-bold">Welcome to Home page</h1>
 
     <a th:href="@{/}">Click here to open</a>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet debitis necessitatibus voluptatem omnis iusto tempora odio nesciunt officiis voluptatibus facilis reiciendis culpa, laudantium temporibus recusandae quos quidem amet quisquam, modi animi, odit quod sed laborum harum! Enim ea dolorum eligendi earum eum provident adipisci quisquam a omnis, consequuntur, placeat eveniet sed non quam. Consequatur obcaecati, amet ducimus non quia tenetur?</p>
