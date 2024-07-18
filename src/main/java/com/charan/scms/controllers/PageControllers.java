@@ -8,9 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageControllers {
     @RequestMapping("/home")
     public String home(Model model){
-//        System.out.println("Home page handler");
         model.addAttribute("name","substring Technologies");
         model.addAttribute("channel","Code with durgesh");
         return "home";
+    }
+
+    @RequestMapping("/about")
+    public String aboutPage(){
+        return "about";
+    }
+
+    @RequestMapping("/services")
+    public  String servicesPage(){
+        return "services";
     }
 }
