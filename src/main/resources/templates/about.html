@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script},~{})}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<title>About Page</title>
 </head>
-
 <body>
-    <h1>This is about page</h1>
-    <hr>
-    <div class="host-tag" th:replace="~{base :: parent(~{::section})}">
-        <section>
-            <h2>Dynamic Page</h2>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem cum culpa asperiores, pariatur
-                suscipit laudantium eum quod atque eaque quia at ipsam, doloremque, minima nostrum tempora et
-                perferendis corporis numquam nisi fugiat reiciendis. Eaque esse inventore doloremque sed laudantium
-                repellendus a, officia harum?</p>
-            <button>Click me</button>
-        </section>
+    <div id="content">
+        <h1>Welcome to about page</h1>
+        <p>Here you can find information about the project</p>
     </div>
-
+    <script>
+        console.log("Hello about page")
+    </script>
 </body>
-
 </html>

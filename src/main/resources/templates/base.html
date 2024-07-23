@@ -1,6 +1,43 @@
-<div th:fragment="parent(content)">
-<h1>This is parent fragment</h1>
-<p>Lorem ipsum dolor sit amet adipisicing elit. Consectetur debitis eveniet asperiores veniam suscipit assumenda? Sit in ad neque obcaecati!</p>
+<!DOCTYPE html>
+<html lang="en" th:fragment="parent(content,title,script,link)" xmlns:th="http://www.thymeleaf.org">
 
-<div th:replace="${content}"></div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-th-replace="${title}">SCMS</title>
+    <link rel="stylesheet" th:href="@{'/css/output.css'}">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+    <th:block data-th-replace="${link}"></th:block>
+</head>
+
+<body>
+<!--Common header-->
+<ul class="p-5">
+    <li>
+        <a data-th-href="@{/home}">Home</a>
+    </li>
+    <li>
+        <a data-th-href="@{/about}">About</a>
+    </li>
+    <li>
+        <a data-th-href="@{/services}">Services</a>
+    </li>
+
+</ul>
+
+<!--Main Content-->
+    <div class="p-4">
+        <section data-th-replace="${content}">
+        </section>
+
+    </div>
+<!--Common Footer-->
+<footer class="p-4 text-sm">
+    All rights reserved @charan
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <th:block data-th-replace="${script}"></th:block>
+</body>
+
+</html>
