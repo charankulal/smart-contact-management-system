@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" th:fragment="parent(content,title,script,link)" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:fragment="parent(content,title,script,link)" class="dark" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -10,13 +10,13 @@
     <th:block data-th-replace="${link}"></th:block>
 </head>
 
-<body>
+<body class="dark:bg-gray-700 dark:text-white bg-white">
 <!-- Navbar -->
  <div data-th-replace="navbar :: navbar">
  </div>
 
 <!--Main Content-->
-    <div class="p-4">
+    <div class="p-4 h-screen w-full ">
         <section data-th-replace="${content}">
         </section>
 
