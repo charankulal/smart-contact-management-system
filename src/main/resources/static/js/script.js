@@ -9,6 +9,25 @@ const setTheme = (theme) => {
     localStorage.setItem("theme", theme)
 }
 
+window.addEventListener('load', function() {
+    let currentTheme = getTheme()
+    const changeThemeButton = document.querySelector('#theme_change_button')
+    if (currentTheme==='light')
+    {
+        document.querySelector('html').classList.remove("dark")
+        setTheme(currentTheme)
+        document.querySelector('html').classList.add("light")
+    }
+    else
+    {
+            document.querySelector('html').classList.remove("light")
+            setTheme(currentTheme)
+            document.querySelector('html').classList.add("dark")
+    }
+    changeThemeButton.querySelector('span').textContent=currentTheme==='light'?'Dark':'Light'
+
+});
+
 const changeTheme = () => {
     //  set the listener to change theme button
     const changeThemeButton = document.querySelector('#theme_change_button')
