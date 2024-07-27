@@ -1,9 +1,11 @@
 package com.charan.scms.entities;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "contacts")
 public class Contact {
 
     @Id
@@ -18,5 +20,10 @@ public class Contact {
     private boolean favourite=false;
     private String websiteLink;
     private String linkedInLink;
-//    private List<String> socialLinks= new ArrayList<>();
+
+    @ManyToOne
+    private User user;
+
+    @OneToMany(mappedBy = "contact",cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
+    private List<SocialLink> links= new ArrayList<>();
 }
