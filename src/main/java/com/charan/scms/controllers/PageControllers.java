@@ -2,7 +2,10 @@ package com.charan.scms.controllers;
 
 import com.charan.scms.entities.User;
 import com.charan.scms.forms.UserForm;
+import com.charan.scms.helpers.Message;
+import com.charan.scms.helpers.MessageType;
 import com.charan.scms.services.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,12 +55,22 @@ public class PageControllers {
 
     // Processing register
     @PostMapping( "/do-register")
-    public String processRegister(@ModelAttribute UserForm userForm){
+    public String processRegister(@ModelAttribute UserForm userForm, HttpSession session){
 
-        User user = User.builder().name(userForm.getName()).email(userForm.getEmail()).password(userForm.getPassword()).about(userForm.getAbout()).phoneNumber(userForm.getPhoneNumber()).profilePic("D:\\Docs\\Github_Profile.jpg").build();
+        User user= new User();
+        user.setName(userForm.getName());
+        user.setEmail(userForm.getEmail());
+        user.setPassword(userForm.getPassword());
+        user.setAbout(userForm.getAbout());
+        user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setProfilePic("D:\\Docs\\Github_Profile.jpg");
+        user.setName(userForm.getName());
 
         User saveUser=userService.saveUser(user);
-        System.out.println(saveUser.toString());
+
+        Message message=Message.builder().content("Registration Successful").type(MessageType.green).build();
+
+        session.setAttribute("message",message);
 
         return "redirect:/register";
     }

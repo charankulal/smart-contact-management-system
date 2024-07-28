@@ -14,10 +14,9 @@
 
             <div class="col-span-12 md:col-span-8 lg:col-span-4 xl:col-span-4">
                 <div class="block p-6 bg-white border-gray-400 border-t-4 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-900 dark:hover:bg-gray-600">
+                    <div data-th-replace="message::messagebox"></div>
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Signup Here</h5>
                     <p class="font-normal text-gray-700 dark:text-gray-400 text-center">Start managing contacts in the cloud!!</p>
-
-
                     <form class="max-w-sm mx-auto mt-3" data-th-action="@{'/do-register'}" data-th-object="${userForm}" method="post">
                         <div class="mb-3">
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
