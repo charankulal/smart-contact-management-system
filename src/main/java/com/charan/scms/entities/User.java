@@ -29,6 +29,7 @@ public class User {
     private boolean enabled=false;
     private boolean emailVerified=false;
     private boolean phoneVerified=false;
+    @Enumerated
     private Providers provider=Providers.SELF;
     private String providerUserId;
 
