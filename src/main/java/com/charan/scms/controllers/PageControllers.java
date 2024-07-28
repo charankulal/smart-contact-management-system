@@ -6,9 +6,11 @@ import com.charan.scms.helpers.Message;
 import com.charan.scms.helpers.MessageType;
 import com.charan.scms.services.UserService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,7 +57,11 @@ public class PageControllers {
 
     // Processing register
     @PostMapping( "/do-register")
-    public String processRegister(@ModelAttribute UserForm userForm, HttpSession session){
+    public String processRegister(@Valid @ModelAttribute UserForm userForm, BindingResult bindingResult, HttpSession session){
+
+        if (bindingResult.hasErrors()){
+            return "register";
+        }
 
         User user= new User();
         user.setName(userForm.getName());
